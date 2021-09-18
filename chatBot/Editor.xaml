@@ -23,6 +23,6 @@
         <TextBox x:Name="tb_file" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" GotFocus="tb_file_GotFocus" KeyDown="tb_file_KeyDown"   TextChanged="tb_file_TextChanged" ></TextBox>
         <Button x:Name="bt_save" Content="save" Grid.Column="3" Grid.Row="2" Click="bt_save_Click" ></Button>
         <Label x:Name="lb_log" Grid.Column="1" Grid.Row="2" FontFamily="Agency FB"   ></Label>
-        <Button x:Name="bt_generate" Grid.Column="2" Grid.Row="2" Content="new Line" Grid.ColumnSpan="1"  Grid.RowSpan="1" Click="bt_generate_Click"/>
+        <Button x:Name="bt_generate" Grid.Column="2" Grid.Row="2" Content="Generate" Grid.ColumnSpan="1"  Grid.RowSpan="1" Click="bt_generate_Click"  />
     </Grid>
 </Window>

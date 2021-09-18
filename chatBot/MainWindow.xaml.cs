@@ -20,7 +20,7 @@ namespace chatBot
     /// </summary>
     public partial class MainWindow : Window
     {
-        public BotEngine BE = new BotEngine();
+        public BotEngine BE = new BotEngine(BotEngine.StorageType.TextStorage);
 
         public Editor editor = new Editor();
         public Log log = new Log();
@@ -43,12 +43,16 @@ namespace chatBot
                     MessageBox.Show($"Fehler: {ex.chatBotErrorNum} \nProblem: {ex.Message}");
 
                 }
-
                 if (ex.chatBotErrorNum == 103)
                 {
                     MessageBox.Show($"Fehler: {ex.chatBotErrorNum} \nProblem: {ex.Message}");
 
                 }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"\nProblem: {ex.Message}");
             }
         } 
 
@@ -105,7 +109,7 @@ namespace chatBot
             }
             else
             {
-                editor.path = BE.storage.pfad;
+                editor.path = BE.Storage.pfad;
                 editor.Show();
             }
         }
@@ -114,7 +118,7 @@ namespace chatBot
         /// </summary>
         public void initEditor()
         {
-            editor = new Editor(BE.storage.pfad);
+            editor = new Editor(BE.Storage.pfad);
             editor.Show();
         }
 

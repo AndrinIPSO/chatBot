@@ -10,7 +10,7 @@ namespace chatBot
     /// <summary>
     /// Speicherklasse
     /// </summary>
-    public class Storage
+    public class TextStorage : IStorage
     {
         /// <summary>
         /// Pfad
@@ -23,7 +23,7 @@ namespace chatBot
         /// <summary>
         /// Storage mit standartpfad
         /// </summary>
-        public Storage()
+        public TextStorage()
         {
             pfad = Environment.CurrentDirectory + @"\storage.txt";
         }
@@ -31,7 +31,7 @@ namespace chatBot
         /// Storage mit eigenem pfad
         /// </summary>
         /// <param name="newPath">eigener Pfad</param>
-        public Storage(string newPath)
+        public TextStorage(string newPath)
         {
             pfad = newPath;
         }

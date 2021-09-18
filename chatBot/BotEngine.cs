@@ -9,12 +9,15 @@ namespace chatBot
     /// <summary>
     /// Bot Engine
     /// </summary>
-    public class BotEngine
+    public class BotEngine 
     {
         /// <summary>
         /// Storage (Speicher)
         /// </summary>
-        public Storage storage { get; set; }
+        public IStorage Storage { get; set; }
+
+
+
         /// <summary>
         /// Nachrichten liste
         /// </summary>
@@ -23,9 +26,12 @@ namespace chatBot
         /// <summary>
         /// Ctor instanziiert storage mit standartpfad
         /// </summary>
-        public BotEngine()
+        public BotEngine(StorageType storageType)
         {
-            storage = new Storage();
+            if (storageType == StorageType.TextStorage)
+            {
+            Storage = new TextStorage();
+            }
         }
 
         /// <summary>
@@ -38,17 +44,17 @@ namespace chatBot
             {
 
                 //Exeption wenn index nicht gefunden wird
-                storage.Load();
+                Storage.Load();
 
-                for (int i = 0; i < storage.messages.Length; i++)
+                for (int i = 0; i < Storage.messages.Length; i++)
                 {
                     if (i % 2 == 0)
                     {
-                        messages.Add(new Message(storage.messages[i], storage.messages[i + 1]));
+                        messages.Add(new Message(Storage.messages[i], Storage.messages[i + 1]));
                     }
                 }
             }
-            catch (NullReferenceException )
+            catch (NullReferenceException)
             {
 
                 throw new ChatBoxException("In der Datei steht nichts", 102);
@@ -97,7 +103,10 @@ namespace chatBot
                 throw new ChatBoxException("Keine Antwort gefunden", 100);
             }
         }
-
+        public enum StorageType
+        {
+            TextStorage
+        }
 
     }
 }

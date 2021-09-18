@@ -125,8 +125,9 @@ namespace chatBot
 
         private void bt_generate_Click(object sender, RoutedEventArgs e)
         {
-            tb_file.Text += "\n";
-           // MessageBox.Show("Funktion noch nicht eingebaut", "FEHLER", MessageBoxButton.OK, MessageBoxImage.Warning);
+               
+            tb_file.Text = "Hallo,Guten Tag";
+            bt_save_Click(sender, e);
         }
     }
 }
