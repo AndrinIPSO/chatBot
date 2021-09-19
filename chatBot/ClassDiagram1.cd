@@ -2,23 +2,17 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="chatBot.BotEngine">
     <Position X="4.25" Y="1" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="chatBot.BotEngine.StorageType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>BotEngine.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAIAAAAAAAAEAAAAAAAAAAAAAABAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAIAAAAAAAAEAAAAAAAAAAAAAABAAACAAAAAAA=</HashCode>
       <FileName>BotEngine.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="messages" />
+      <Property Name="storage" />
     </ShowAsAssociation>
   </Class>
   <Class Name="chatBot.ChatBoxException">
-    <Position X="5.75" Y="2.75" Width="1.5" />
+    <Position X="5.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ChatBoxExeption.cs</FileName>
@@ -58,7 +52,7 @@
   <Class Name="chatBot.Editor">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAMgAAAAAAAAAgAAAACADAAAAAAABCAQAAQAAAAAAA=</HashCode>
+      <HashCode>AAAMgAAAAAAAAAgAAAACADAAAAAAABCAAAAQAAAAAAA=</HashCode>
       <FileName>Editor.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
