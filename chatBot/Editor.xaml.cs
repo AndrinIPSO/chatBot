@@ -21,9 +21,21 @@ namespace chatBot
     /// </summary>
     public partial class Editor : Window
     {
+        /// <summary>
+        /// Ist Objekt erstellt
+        /// </summary>
         public bool opened { get; set; }
+        /// <summary>
+        /// Dateipfad
+        /// </summary>
         public string path { get; set; }
+        /// <summary>
+        /// Wurde bereits fokusiert
+        /// </summary>
         private bool firstfocus = true;
+        /// <summary>
+        /// Neuer leerer Editor
+        /// </summary>
         public Editor()
         {
             InitializeComponent();
@@ -31,7 +43,10 @@ namespace chatBot
             loadFile();
             lb_log.Content = "Log: Window Initialised";
         }
-
+        /// <summary>
+        /// Editor mit benutzerdefiniertem Pfad
+        /// </summary>
+        /// <param name="path">Pfad</param>
         public Editor(string path)
         {
             InitializeComponent();
@@ -40,7 +55,11 @@ namespace chatBot
             loadFile();
             lb_log.Content = "Log: Window Initialised";
         }
-
+        /// <summary>
+        /// Schliessen des Fensters
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closed(object sender, EventArgs e)
         {
             opened = false;
@@ -64,7 +83,11 @@ namespace chatBot
                 lb_log.Content = $"Log: {ex.Message}";
             }
         }
-
+        /// <summary>
+        /// Bereitstellen der Textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tb_file_GotFocus(object sender, RoutedEventArgs e)
         {
             if (firstfocus)
@@ -77,7 +100,11 @@ namespace chatBot
                 firstfocus = false;
             }
         }
-
+        /// <summary>
+        /// Speichern der Datei
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_save_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -107,7 +134,11 @@ namespace chatBot
                 lb_log.Content = $"Log: {ex.Message}";
             }
         }
-
+        /// <summary>
+        /// Speichern der Datei durch drücken der Enter Taste
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tb_file_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -115,12 +146,20 @@ namespace chatBot
                 bt_save_Click(bt_save, e);
             }
         }
-
+        /// <summary>
+        /// User über änderung des Texts informieren
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tb_file_TextChanged(object sender, TextChangedEventArgs e)
         {
             lb_log.Content = $"Log: Text Changed >> Press enter to save";
         }
-
+        /// <summary>
+        /// Generiern von 50 Wörtern durch Knopfdruck
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_generate_Click(object sender, RoutedEventArgs e)
         {
             if (tb_file.Text == "" || tb_file.Text == null)
@@ -132,7 +171,10 @@ namespace chatBot
                 generate(generateType.Append);
             }
         }
-
+        /// <summary>
+        /// Generieren der 50 Wörter
+        /// </summary>
+        /// <param name="mode"></param>
         public void generate(generateType mode)
         {
             if (mode == generateType.New)
@@ -145,7 +187,9 @@ namespace chatBot
             }
             lb_log.Content = "Log: Text Generatet >> Press Enter to save";
         }
-
+        /// <summary>
+        /// Bestimmen ob Hinzugefügt oder überschrieben wird
+        /// </summary>
         public enum generateType
         {
             Append,

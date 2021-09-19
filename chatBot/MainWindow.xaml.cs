@@ -21,10 +21,21 @@ namespace chatBot
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Bot Engine Feld
+        /// </summary>
         public BotEngine BE = new BotEngine(BotEngine.StorageType.TextStorage);
-
+        /// <summary>
+        /// Editor Feld
+        /// </summary>
         public Editor editor = new Editor();
+        /// <summary>
+        /// Log Feld
+        /// </summary>
         public Log log = new Log();
+        /// <summary>
+        /// Initialisierung
+        /// </summary>
         public MainWindow()
         {
             try
@@ -49,28 +60,36 @@ namespace chatBot
                     MessageBox.Show($"Fehler: {ex.chatBotErrorNum} \nProblem: {ex.Message}");
 
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"\nProblem: {ex.Message}");
             }
-        } 
-
-            private void bt_send_Click(object sender, RoutedEventArgs e)
+        }
+        /// <summary>
+        /// Nachricht an Bot übergeben durch Knopf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bt_send_Click(object sender, RoutedEventArgs e)
         {
             sendMSG();
         }
-
+        /// <summary>
+        /// Nachricht an Bot übergeben durch ENTER
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tb_input_KeyDown(object sender, KeyEventArgs e)
-        
         {
             if (e.Key == Key.Enter)
             {
                 sendMSG();
             }
         }
-
+        /// <summary>
+        /// Senden der Nachricht an den Bot
+        /// </summary>
         private void sendMSG()
         {
             try
@@ -91,17 +110,24 @@ namespace chatBot
 
                 }
             }
-
-            }
-
+        }
+        /// <summary>
+        /// Löschen des Textinhalts
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_clear_Click(object sender, RoutedEventArgs e)
         {
             tb_talk.Text = "";
         }
-
+        /// <summary>
+        /// Öffnen des Editors
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_editor_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (!editor.opened)
             {
                 initEditor();
@@ -113,14 +139,18 @@ namespace chatBot
             }
         }
         /// <summary>
-        /// Editor neu Initiialisieren
+        /// Editor Initiialisieren und öffnen
         /// </summary>
         public void initEditor()
         {
             editor = new Editor(BE.Storage.pfad);
             editor.Show();
         }
-
+        /// <summary>
+        /// Text zu Logdatei
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bt_log_Click(object sender, RoutedEventArgs e)
         {
             log.toFile(tb_talk.Text);
