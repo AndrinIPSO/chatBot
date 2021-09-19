@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chatBot
+namespace ChatBotLib
 {
     /// <summary>
     /// Speicherklasse
@@ -35,7 +35,6 @@ namespace chatBot
         {
             pfad = newPath;
         }
-
         /// <summary>
         /// teilt die datei in wörter auf in den messages array
         /// </summary>

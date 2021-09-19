@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chatBot
+namespace BotLib
 {
     /// <summary>
     /// NAchrichten klasse

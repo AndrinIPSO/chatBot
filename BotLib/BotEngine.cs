@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chatBot
+namespace ChatBotLib
 {
     /// <summary>
     /// Bot Engine
@@ -30,22 +30,17 @@ namespace chatBot
         {
             if (storageType == StorageType.TextStorage)
             {
-            Storage = new TextStorage();
+                Storage = new TextStorage();
             }
         }
-
         /// <summary>
         /// füget fragen und antworten der Liste hinzu
         /// </summary>
         public void initMessages()
         {
-
             try
             {
-
-                //Exeption wenn index nicht gefunden wird
                 Storage.Load();
-
                 for (int i = 0; i < Storage.messages.Length; i++)
                 {
                     if (i % 2 == 0)
@@ -70,7 +65,6 @@ namespace chatBot
                 throw new ChatBoxException("In der Datei steht nichts", 102);
             }
         }
-
         /// <summary>
         /// Gibt die antwort zurück
         /// </summary>
@@ -98,7 +92,7 @@ namespace chatBot
                
                 
             }
-            catch(ChatBoxException ex)
+            catch(ChatBoxException)
             {
                 throw new ChatBoxException("Keine Antwort gefunden", 100);
             }

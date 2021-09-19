@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ChatBotLib;
 
 namespace chatBot
 {
@@ -87,8 +88,6 @@ namespace chatBot
                 {
                     tb_talk.Text += $"BOT:\tKeine Antwort gefunden\n";
                     tb_input.Text = "";
-
-
 
                 }
             }

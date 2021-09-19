@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chatBot
+namespace BotLib
 {
-    class ChatBoxException : Exception
+    public class ChatBoxException : Exception
     {
 
         public int chatBotErrorNum { get; set; }
